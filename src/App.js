@@ -27,11 +27,11 @@ function App() {
       setCart([])
     }
     const cartHandler = (data) => {
-      const alreadyAdded = cart.find(crt => crt.id == data.id );
+      const alreadyAdded = cart.find(crt => crt.id === data.id );
       const newCart = [...cart,data]
       setCart(newCart);
       if(alreadyAdded){
-        const reamingCarts = cart.filter(crt => cart.id != data);
+        const reamingCarts = cart.filter(crt => cart.id !== data);
         setCart(reamingCarts);
       }else{
         const newCart = [...cart,data]
@@ -42,7 +42,7 @@ function App() {
 
     const checkOutItemHandler = (productId, productQuantity) => {
       const newCart = cart.map(item => {
-        if(item.id == productId){
+        if(item.id === productId){
             item.quantity = productQuantity;
         }
         return item;
